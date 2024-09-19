@@ -75,29 +75,99 @@ const CourseInfo = {
       }
     }
   ];
-  
-  function getLearnerData(course, ag, submissions) {
-    // here, we would process this data to achieve the desired result.
+
+
+
+    // the ID of the learner for which this data has been collected "id": number,
+    // the learner’s total, weighted average, in which assignments
+    // with more points_possible should be counted for more
+    // e.g. a learner with 50/100 on one assignment and 190/200 on another
+    // would have a weighted average score of 240/300 = 80%. "avg": number,
+    // each assignment should have a key with its ID,
+    // and the value associated with it should be the percentage that
+    // the learner scored on the assignment (submission.score / points_possible)<assignment_id>: number,
+    // if an assignment is not yet due, it should not be included in either
+    // the average or the keyed dictionary of scores
+
+    // learner_id: 125,                        learner_id: 132,
+    // assignment_id: 1,                       assignment_id: 1,
+    // submission: {                           submission: {
+    //   submitted_at: "2023-01-25",              submitted_at: "2023-01-24",
+    //   score: 47                                score: 39
+
+    // learner_id: 125,                        learner_id: 132,
+    // assignment_id: 2,                       assignment_id: 2,
+    // submission: {                           submission: {
+    //   submitted_at: "2023-02-12",               submitted_at: "2023-03-07",
+    //   score: 150                                core: 140
+      
+    // learner_id: 125,
+    // assignment_id: 3,
+    // submission: {
+    //   submitted_at: "2023-01-25",
+    //   score: 400  
+      
+// // empty  object for the learner data
+// let learnerData = {
+//     id: ''
+// }
+
+  try {
+    if(CourseInfo.id !== AssignmentGroup.course_id){
+        console.log(`Input invalid`)
+    }
+} catch (err) {
+    console.error(err)
+}
+
+// for(let assignment = AssignmentGroup; assignment > 0;){
+//     if(AssignmentGroup.assignments.points_possible !== number || AssignmentGroup.assignments.points_possible <= 0)
+// } else if(points_possible <= 0)
+
+for(let i = 0; i < AssignmentGroup.assignments; i++){
+    let assignment = AssignmentGroup.assignments[i]
+    if(typeof assignment.points_possible !== 'number' || assignment.points_possible <= 0){
+        console.log('Invalid: The assignment does not have a valid value')
+    } 
+}
+
+
+// let learnerData = {
+//     learner_id125: {
+//         totalScore: 0,
+//         totalPoint: 0,
+//         a1: pScore,
+//         a2: pscore,
+//     },
+//     learner_id132: {
+//         totalScore: 0,
+//         totalPoint: 0,
+//         a1: pScore,
+//         a2: pscore,
+//     }
+// }
+
+// getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions)
+
+function getLearnerData (CourseInfo, AssignmentGroup, LearnerSubmissions){
+    // console.log(CourseInfo, AssignmentGroup, LearnerSubmissions)
     let result = []
 
-    try {
-        if(course.id !== AssignmentGroup){
-            console.log(`Input invalid`)
-        }
-    } catch (error) {
-        console.log(error)
-    }
+   
+
+}
+
+
+function (){
+    
+}
 
 
 
   
-    return result;
-  }
-  
-  const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
-  
-  console.log(result);
-  
+//   function getLearnerData(course, ag, submissions) {
+//     // here, we would process this data to achieve the desired result.
+//     let result = []
 
       // const result = [
     //   {
@@ -113,3 +183,12 @@ const CourseInfo = {
     //     2: 0.833 // late: (140 - 15) / 150
     //   }
     // ];
+
+//     return result;
+//   }
+  
+//   const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
+  
+//   console.log(result);
+  
+
