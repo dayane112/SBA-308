@@ -128,8 +128,15 @@ for(let i = 0; i < AssignmentGroup.assignments; i++){
     let assignment = AssignmentGroup.assignments[i]
     if(typeof assignment.points_possible !== 'number' || assignment.points_possible <= 0){
         console.log('Invalid: The assignment does not have a valid value')
-    } 
+    } else {
+        break;
+    }
 }
+
+//  What do we know 
+    // need to creata function called getLearnerData
+    // gathers data, processes it, and then outputs
+    // thro error if 
 
 
 // let learnerData = {
@@ -149,18 +156,12 @@ for(let i = 0; i < AssignmentGroup.assignments; i++){
 
 // getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions)
 
-function getLearnerData (CourseInfo, AssignmentGroup, LearnerSubmissions){
-    // console.log(CourseInfo, AssignmentGroup, LearnerSubmissions)
-    let result = []
-
-   
-
-}
+// function getLearnerData (CourseInfo, AssignmentGroup, LearnerSubmissions){
+//     // console.log(CourseInfo, AssignmentGroup, LearnerSubmissions)
+//     let result = []
+// }
 
 
-function (){
-    
-}
 
 
 
@@ -192,3 +193,25 @@ function (){
 //   console.log(result);
   
 
+//objects = 4 data types : CourseInfo, AssignmentGroup, LearnerSubmission, AssignmentInfo
+//compare due dates and get the average
+
+//compare (manipulate array)
+//iterate over objects to pull into an array
+//308.3 loops example
+// for (let i = 0; i < 10; i++) {
+// 	console.log(i);
+// }
+
+let arr = []
+
+for (let i = 0; i <  AssignmentGroup.assignments.length; i++) {
+	//access the object
+    const ag = AssignmentGroup.assignments[i];
+    const subDate = {}; //trying to get due_at
+    subDate.due_at = ag.due_at;
+
+    //pushing array 
+    arr.push(subDate)
+}
+console.log(arr)
