@@ -215,3 +215,19 @@ for (let i = 0; i <  AssignmentGroup.assignments.length; i++) {
     arr.push(subDate)
 }
 console.log(arr)
+
+// same loop for retrieving point
+// attempt to put in a funcion later
+let ptsp = []
+
+for (let p = 0; p <  AssignmentGroup.assignments.length; p++) {
+	//access the object
+    const pt = AssignmentGroup.assignments[p];
+    const points = {}; //trying to get due_at
+    points.points_possible = pt.points_possible;
+
+    //pushing array 
+    ptsp.push(points)
+}
+console.log(ptsp)
+
