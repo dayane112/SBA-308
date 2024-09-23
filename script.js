@@ -108,37 +108,44 @@ function getLearnerData (course, ag, submissions){
             throw `Input invalid`
         }
 
-        let temp = 0;
-
         for(let sub of submissions){
-            // console.log(sub)
+            console.log(sub)
             if(!result.some(el => el.id == sub.learner_id)){ //if learner doesn't exist
                 let student = {id: sub.learner_id}
                 student[sub.assignment_id] = sub.submission.score
+                // temp += sub.submission.score
                 result.push(student)
+
             } else { // if a learner does exist
-                
                 result.forEach((s) => {
                     if(s.id == sub.learner_id){
                         s[sub.assignment_id] = sub.submission.score
-                        temp += sub.submission.score
+                        // temp2 += s.submission.score
                         // console.log(s[sub.assignment_id])
                     }
-                })
-                
+                })    
             }
         }
-        console.log(temp / 3)
+
+    
 
 
+        // s.forEach(() => {
+
+        // })
+        // for(fullGrade in sub.map(subs => subs['1'])){
+        // console.log(fullGrade);
+        // fullGrade = {};
+       
+
+        // fullGrade = s.map(ss => ss['2']);
+        // console.log(fullGrade)
+        // }
 
 
-
-    } catch (err) {
-        console.error(err)
+ } catch (err) {
+        console.error(err);
     }
-
-
     return result
 }
 // for(let j = 0; j < AssignmentGroup.assignments.length; j++){
